@@ -1,11 +1,12 @@
 const Like = require('../models/Like');
+const { findPostById, findCommentById } = require('../utils/ValidationHelper')
 
 exports.getLikeCountForPost = async (req, res) => {
   try {
     const userId = req.user.id;
     const postId = req.params.postId;
 
-    if(!findPostById(postId)){
+    if(!await findPostById(postId)){
       res.status(404).json({message: 'No post found.'});
     }
 
@@ -20,12 +21,12 @@ exports.getLikeCountForPost = async (req, res) => {
   }
 };
 
-exports.getLikeCountForPost = async (req, res) => {
+exports.getLikeCountForComment = async (req, res) => {
   try {
     const userId = req.user.id;
     const commentId = req.params.commentId;
 
-    if(!findCommentById(commentId)){
+    if(!await findCommentById(commentId)){
       res.status(404).json({message: 'No comment found.'});
     }
 
@@ -45,7 +46,7 @@ exports.addLikeToPost = async (req, res) => {
     const postId = req.params.postId;
     const userId = req.user.id; 
 
-    if(!findPostById(postId)){
+    if(! await findPostById(postId)){
       res.status(404).json({message: 'Like failed. No post found.'});
     }
 
@@ -69,12 +70,12 @@ exports.addLikeToPost = async (req, res) => {
   }
 };
 
-exports.addLikeTocomment = async (req, res) => {
+exports.addLikeToComment = async (req, res) => {
   try {
     const commentId = req.params.commentId;
     const userId = req.user.id; 
 
-    if(!findCommentById(commentId)){
+    if(!await findCommentById(commentId)){
       res.status(404).json({message: 'Like failed. No comment found.'});
     }
 
@@ -103,7 +104,7 @@ exports.unlikePost = async (req, res) => {
     const postId = req.params.postId;
     const userId = req.user.id; 
 
-    if(!findPostById(postId)){
+    if(!await findPostById(postId)){
       res.status(404).json({message: 'Unlike failed. No post found.'});
     }
 
@@ -126,7 +127,7 @@ exports.unlikeComment = async (req, res) => {
     const commentId = req.params.commentId;
     const userId = req.user.id; 
 
-    if(!findCommentById(commentId)){
+    if(!await findCommentById(commentId)){
       res.status(404).json({message: 'Unlike failed. No comment found.'});
     }
 
