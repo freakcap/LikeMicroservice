@@ -8,6 +8,6 @@ router.get('/comments/:commentId/count', verifyToken, likeController.getLikeCoun
 router.post('/posts/:postId', verifyToken, likeController.addLikeToPost);
 router.post('/comments/:commentId', verifyToken, likeController.addLikeToComment);
 router.delete('/posts/:postId', verifyToken, likeController.unlikePost);
-router.delete('/comments/:postId', verifyToken, likeController.unlikeComment)
+router.delete('/comments/:commentId', verifyToken, likeController.unlikeComment)
 
 module.exports = router;

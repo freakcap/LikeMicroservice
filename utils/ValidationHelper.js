@@ -1,10 +1,11 @@
 const axios = require('axios'); 
 
-const API_BASE_URL = "https://api.example.com";
+const POST_SERVICE_BASE_URL = "https://api.example.com";
+const COMMENT_SERVICE_BASE_URL = "https://api.example.com";
 
 async function findPostById(postId) {
   try {
-    const response = await axios.get(`${API_BASE_URL}/posts/${postId}`);
+    const response = await axios.get(`${POST_SERVICE_BASE_URL}/posts/${postId}`);
 
     // If we get a 200 response, the post exists
     if (response.status === 200) {
@@ -24,7 +25,7 @@ async function findPostById(postId) {
 
 async function findCommentById(commentId) {
   try {
-    const response = await axios.get(`${API_BASE_URL}/comments/${commentId}`);
+    const response = await axios.get(`${COMMENT_SERVICE_BASE_URL}/comments/${commentId}`);
 
     // If we get a 200 response, the comment exists
     if (response.status === 200) {
