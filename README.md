@@ -32,8 +32,13 @@ Component microservice for a blogging application as part of a group assignment 
     MONGO_URI=your_mongo_db_connection_string
     JWT_SECRET=your_jwt_secret
 ```
+3. Update the dependent services' base URLs in the ValidationHelper
 
-3. Start the server:
+```bash
+    const POST_SERVICE_BASE_URL = "https://api.example.com";
+    const COMMENT_SERVICE_BASE_URL = "https://api.example.com";
+```
+4. Start the server:
 
 ```bash
     npm run start
