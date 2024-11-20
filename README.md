@@ -29,16 +29,12 @@ Component microservice for a blogging application as part of a group assignment 
 2. Create a .env file in the server directory with the following variables:
 
 ```bash
-    MONGO_URI=your_mongo_db_connection_string
+    MONGODB_URI=your_mongo_db_connection_string
     JWT_SECRET=your_jwt_secret
+    POST_SERVICE_URL="the base url to the post service"
+    COMMENT_SERVICE_URL="the base url to the comment service"
 ```
-3. Update the dependent services' base URLs in the ValidationHelper
-
-```bash
-    const POST_SERVICE_BASE_URL = "https://api.example.com";
-    const COMMENT_SERVICE_BASE_URL = "https://api.example.com";
-```
-4. Start the server:
+3. Start the server:
 
 ```bash
     npm run start
@@ -46,5 +42,5 @@ Component microservice for a blogging application as part of a group assignment 
 
 ### Running the Application
 
-Service will run on http://localhost:8000.
+Service will run on http://localhost:6000.
 
